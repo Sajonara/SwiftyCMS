@@ -25,3 +25,4 @@ extension Game: SQLiteModel {
 }
 
 extension Game: Migration {}
+extension Game: Parameter {}

@@ -21,4 +21,9 @@ public func routes(_ router: Router) throws {
     router.get("api/games") { req -> Future<[Game]> in
         return Game.query(on: req).all()
     }
+    
+    // retrieve a single game
+    router.get("api/game", Game.parameter) { req -> Future<Game> in
+        return try req.parameters.next(Game.self)
+    }
 }

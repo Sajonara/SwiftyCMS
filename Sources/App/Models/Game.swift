@@ -9,7 +9,7 @@ import Foundation
 import Vapor
 import FluentSQLite
 
-final class Dish: Content {
+final class Game: Content {
     var id: Int?
     var title: String
     var pubyear: Int

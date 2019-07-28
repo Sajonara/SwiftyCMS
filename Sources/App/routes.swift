@@ -11,4 +11,9 @@ public func routes(_ router: Router) throws {
     router.get("hello") { req in
         return "Hello, world!"
     }
+    
+    // Post a game to the database
+    router.post(Game.self, at: "api/game") { req, game -> Future<Game> in
+        return game.save(on: req)
+    }
 }

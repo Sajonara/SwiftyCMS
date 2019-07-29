@@ -1,4 +1,6 @@
 import Vapor
+import Foundation
+import FluentSQLite
 
 /// Register your application's routes here.
 public func routes(_ router: Router) throws {
@@ -15,6 +17,13 @@ public func routes(_ router: Router) throws {
     // Post a game to the database
     router.post(Game.self, at: "api/game") { req, game -> Future<Game> in
         return game.save(on: req)
+    }
+    
+    // retrieve games by genre
+    router.get("api/games",String.parameter) { req -> Future<[Game]> in
+        
+        let genre = try req.parameters.next(String.self)
+        return try Game.query(on: req).filter(\Game.genre == genre).all()
     }
     
     // retrieve a list of all games

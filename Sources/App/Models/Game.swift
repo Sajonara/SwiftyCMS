@@ -7,7 +7,7 @@
 
 import Foundation
 import Vapor
-import FluentSQLite
+import FluentPostgreSQL
 
 final class Game: Content {
     var id: Int?
@@ -24,7 +24,7 @@ final class Game: Content {
 
 extension Game: Parameter {}
 
-extension Game: SQLiteModel {
+extension Game: PostgreSQLModel {
     static let entity: String = "games"
 }
 

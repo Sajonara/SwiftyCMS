@@ -20,7 +20,7 @@ class GameController: RouteCollection {
         gamesRoutes.get(Game.parameter, use: getByID)
         gamesRoutes.get("genres", String.parameter, use: getByGenre)
         gamesRoutes.post(Game.self, at: "/", use: createGame)
-        gamesRoutes.patch(Game.parameter, use: editGame)
+        gamesRoutes.put(Game.self, at: "/", use: editGame)
         gamesRoutes.delete(Game.parameter, use: deleteGame)
     }
     
@@ -51,8 +51,8 @@ class GameController: RouteCollection {
     }
     
     // edit a single game
-    func editGame(req: Request) throws -> Future<Game> {
-        return try req.parameters.next(Game.self).update(on: req)
+    func editGame(req: Request, game: Game) throws -> Future<Game> {
+        return try game.update(on: req)
     }
     
 }

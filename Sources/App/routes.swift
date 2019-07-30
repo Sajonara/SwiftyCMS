@@ -35,4 +35,9 @@ public func routes(_ router: Router) throws {
     router.get("api/game", Game.parameter) { req -> Future<Game> in
         return try req.parameters.next(Game.self)
     }
+    
+    // delete a single game
+    router.delete("api/game", Game.parameter) { req -> Future<Game> in
+        try req.parameters.next(Game.self).delete(on: req)
+    }
 }

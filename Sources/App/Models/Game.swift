@@ -14,11 +14,13 @@ final class Game: Content {
     var title: String
     var pubyear: Int
     var genre: String
+    var usk: Int
     
-    init(title: String, pubyear: Int, genre: String) {
+    init(title: String, pubyear: Int, genre: String, usk: Int) {
         self.title = title
         self.pubyear = pubyear
         self.genre = genre
+        self.usk = usk
     }
 }
 

@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>#(title)</title>
+    </head>
+    <body>
+        <h1>#(title)</h1>
+        
+        #if(games) {
+            #for(game in games) {
+            
+            <h2>#(game.title)</h2>
+            <p>#(game.genre)</p>
+            <br />
+            }
+        } else {
+            <h2>Leider gibt es noch keine Spiele</h2>
+        }
+        
+    </body>
+</html>
+
